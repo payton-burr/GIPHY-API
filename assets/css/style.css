@@ -1,0 +1,11 @@
+body {
+  background-color: #333;
+}
+
+form {
+  margin-top: 50px;
+}
+
+label, p {
+  color: white;
+}
