@@ -28,7 +28,7 @@ $(document).on('click', '.searchButton', function() {
   let type = $(this).data('type');
 
   let APIKey = '&api_key=3meK41RxJiNeS6c81jqYQ5Fzqtiq0p0j&limit=10';
-  let queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + type + APIKey;
+  let queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + type + APIKey;
 
   $.ajax({
     url: queryURL,
