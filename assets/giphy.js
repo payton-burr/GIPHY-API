@@ -22,6 +22,19 @@ function generateButtons() {
   }
 }
 
+document.addEventListener('click', (e) => {
+  e.target.classList.contains('btn-options') ? callAPI(e.target) : null;
+});
+
+async function callAPI(item) {
+  const APIKey = 'api_key=3meK41RxJiNeS6c81jqYQ5Fzqtiq0p0j&limit=10';
+  const response = await fetch(
+    `https://api.giphy.com/v1/gifs/search?q=${item.textContent}&${APIKey}`
+  );
+  const data = await response.json();
+
+  return data;
+}
 generateButtons();
 
 // Generating button
