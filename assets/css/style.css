@@ -1,11 +1,68 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background-color: #333;
+  background: #edf2f4;
 }
 
-form {
-  margin-top: 50px;
+.flex-container {
+  padding: 0.4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-label, p {
-  color: white;
+.button-area {
+  width: 50%;
+}
+
+.button-area * {
+  background: #8d99ae;
+  border: 0;
+  margin: 0.185rem;
+  font-size: 1.2rem;
+  color: #2b2d42;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#search-btn {
+  border: 0;
+  background: #d90429;
+  color: #edf2f4;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+}
+
+#search-input {
+  border: 1px solid #8d99ae;
+  padding: 0.6rem 1.25rem;
+  border-radius: 5px;
+}
+
+.images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.images-container * {
+  width: 33.3%;
+  height: 200px;
+}
+
+.image {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.image:hover {
+  transform: scale(1.08);
+  z-index: 2;
 }

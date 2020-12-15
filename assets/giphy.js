@@ -39,14 +39,25 @@ async function getGiphy() {
   const url = urlBase + giphyName + APIKey;
   const giphyAPI = await fetch(url);
   const giphy = await giphyAPI.json();
+  let toggle = false;
   // console.log(giphy);
 
   for (let i = 0; i < giphy.data.length; i++) {
     let image = document.createElement('img');
     image.src = giphy.data[i].images.fixed_height_still.url;
-    console.log(image.src);
     image.classList.add('image');
     imageContainer.prepend(image);
+
+    image.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!toggle) {
+        image.src = giphy.data[i].images.fixed_height.url;
+        toggle = !toggle;
+      } else {
+        image.src = giphy.data[i].images.fixed_height_still.url;
+        toggle = !toggle;
+      }
+    });
   }
 }
 
