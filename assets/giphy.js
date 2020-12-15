@@ -16,6 +16,18 @@ const urlBase = 'https://api.giphy.com/v1/gifs/search?q=';
 let giphyName = '';
 const buttonArea = document.querySelector('.button-area');
 const imageContainer = document.querySelector('.images-container');
+const searchForm = document.querySelector('#search-form');
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btn-options')) {
+    giphyName = e.target.textContent;
+    getGiphy();
+  } else {
+    return null;
+  }
+});
+
+searchForm.addEventListener('submit', handleSubmit);
 
 function generateButtons() {
   for (topic of topics) {
@@ -26,14 +38,12 @@ function generateButtons() {
   }
 }
 
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btn-options')) {
-    giphyName = e.target.textContent;
-    getGiphy();
-  } else {
-    return null;
-  }
-});
+function handleSubmit(e) {
+  e.preventDefault();
+
+  giphyName = e.target.children[1].value;
+  getGiphy();
+}
 
 async function getGiphy() {
   const url = urlBase + giphyName + APIKey;
