@@ -4,40 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Giphy API</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div id="button-area"></div>
-      </div>
-      <div class="row">
-        <div class="col" id="search-area"></div>
-        <div class="col">
-          <form>
-            <div class="form-group">
-              <label for="GIPHY-search">Search for GIF</label>
-              <input
-                type="text"
-                class="form-control"
-                id="GIPHY-search"
-                placeholder="Search here"
-                class="gif-text-input"
-              />
-            </div>
-            <input type="submit" class="btn btn-primary" id="search-button" value="Submit"></input>
-          </form>
-        </div>
-      </div>
+    <div class="flex-container">
+      <div class="button-area"></div>
+      <form id="search-form">
+        <label for="search-image"></label>
+        <input type="text" name="search" id="search-image" />
+        <input type="submit" value="Submit" id="search-button" />
+      </form>
     </div>
+    <div class="images-container"></div>
     <script src="./assets/giphy.js"></script>
   </body>
 </html>
