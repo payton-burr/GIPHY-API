@@ -36,6 +36,7 @@ body {
   color: #edf2f4;
   padding: 0.6rem 1.25rem;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 #search-input {
@@ -48,12 +49,11 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .images-container * {
-  width: 33.3%;
+  width: 300px;
   height: 200px;
 }
 
@@ -65,4 +65,14 @@ body {
 .image:hover {
   transform: scale(1.08);
   z-index: 2;
+}
+
+@media (max-width: 625px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .button-area {
+    display: none;
+  }
 }
