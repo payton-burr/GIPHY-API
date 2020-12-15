@@ -41,8 +41,12 @@ async function getGiphy() {
   const giphy = await giphyAPI.json();
   // console.log(giphy);
 
-  for (item in giphy) {
-    console.log(giphy);
+  for (let i = 0; i < giphy.data.length; i++) {
+    let image = document.createElement('img');
+    image.src = giphy.data[i].images.fixed_height_still.url;
+    console.log(image.src);
+    image.classList.add('image');
+    imageContainer.prepend(image);
   }
 }
 
