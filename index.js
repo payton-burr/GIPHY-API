@@ -1,8 +1,11 @@
-const key = '&api_key=3meK41RxJiNeS6c81jqYQ5Fzqtiq0p0j&limit=10';
+const key = '&api_key=3meK41RxJiNeS6c81jqYQ5Fzqtiq0p0j&limit=20';
 const url = 'https://api.giphy.com/v1/gifs/';
 const button = document.querySelector('button');
 const input = document.querySelector('input');
 const results = document.querySelector('.results');
+let toggle = false;
+let prevInput;
+let title;
 
 const fetchData = async (search) => {
   let urlBase;
@@ -20,11 +23,13 @@ const fetchData = async (search) => {
 
 const handleData = async (e) => {
   e.preventDefault();
-  let toggle = false;
+  title && title.remove();
+  if (prevInput === input.value) return;
+  prevInput = input.value;
   const value = input.value;
   const res = await fetchData(value);
-  const { data } = res;
-  data.forEach((val) => {
+
+  res.data.forEach((val) => {
     let image = document.createElement('img');
     image.src = val.images.fixed_height_still.url;
     image.classList.add('image');
@@ -40,6 +45,17 @@ const handleData = async (e) => {
   });
 };
 
-window.addEventListener('load', handleData);
+window.addEventListener('load', (e) => {
+  handleData(e);
+  title = document.createElement('h2');
+  title.textContent = 'Trending';
+  results.before(title);
+});
 
-button.addEventListener('click', handleData);
+button.addEventListener('click', (e) => {
+  if (input.value === '') {
+    e.preventDefault();
+    return;
+  }
+  handleData(e);
+});
