@@ -25,8 +25,7 @@ const handleData = async (e) => {
   title && title.remove();
   if (prevInput === input.value) return;
   prevInput = input.value;
-  const value = input.value;
-  const res = await fetchData(value);
+  const res = await fetchData(input.value);
 
   res.data.forEach((val) => {
     let image = document.createElement('img');
@@ -41,6 +40,8 @@ const handleData = async (e) => {
       image.src = val.images.fixed_height_still.url;
     });
   });
+
+  input.value = '';
 };
 
 window.addEventListener('load', (e) => {
