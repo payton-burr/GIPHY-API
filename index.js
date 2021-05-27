@@ -3,7 +3,6 @@ const url = 'https://api.giphy.com/v1/gifs/';
 const button = document.querySelector('button');
 const input = document.querySelector('input');
 const results = document.querySelector('.results');
-let toggle = false;
 let prevInput;
 let title;
 
@@ -35,12 +34,11 @@ const handleData = async (e) => {
     image.classList.add('image');
     results.prepend(image);
 
-    image.addEventListener('click', () => {
-      !toggle
-        ? (image.src = val.images.fixed_height.url)
-        : (image.src = val.images.fixed_height_still.url);
-
-      toggle = !toggle;
+    image.addEventListener('mouseenter', () => {
+      image.src = val.images.fixed_height.url;
+    });
+    image.addEventListener('mouseleave', () => {
+      image.src = val.images.fixed_height_still.url;
     });
   });
 };
