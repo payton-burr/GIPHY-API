@@ -32,6 +32,9 @@ form * {
 
 .image {
   cursor: pointer;
+  object-fit: cover;
+  width: 15.625rem;
+  height: 9.375rem;
 }
 
 .input,
