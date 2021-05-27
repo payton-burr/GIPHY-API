@@ -17,11 +17,6 @@ h1 {
   font-weight: 400;
 }
 
-img {
-  object-fit: cover;
-  /* width: 50%; */
-}
-
 form * {
   font-family: 'Roboto', sans-serif;
   margin-bottom: 3rem;
